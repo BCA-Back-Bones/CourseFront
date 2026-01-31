@@ -23,10 +23,11 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          organization: hemavathy-p
-          token: ${{ secrets.SONAR_TOKEN }}
-          projectKey: Hemavathypandiarajan_CourseFront
-          projectName: CourseFront
-          extra-properties: |
-            sonar.sourceEncoding=UTF-8
+          args: >
+            -Dsonar.organization=hemavathy-p
+            -Dsonar.projectKey=Hemavathypandiarajan_CourseFront
+            -Dsonar.projectName=CourseFront
+            -Dsonar.sourceEncoding=UTF-8
